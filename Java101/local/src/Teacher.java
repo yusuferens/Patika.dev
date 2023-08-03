@@ -1,5 +1,4 @@
-public class Teacher {
-    String name;
+public class Teacher extends Human {
     String mpno;
     String branch;
 
@@ -7,6 +6,7 @@ public class Teacher {
         this.name = name;
         this.mpno = mpno;
         this.branch = branch;
+        this.age = 30;
     }
 
 }

@@ -1,43 +1,41 @@
-public class Student {
-    String name,stuNo;
+public class Student extends Human {
+    String stuNo;
     int classes;
     Course mat;
     Course fizik;
     Course kimya;
     double avarage;
     boolean isPass;
-    int verbalnotemat;
-    int verbalnotekmy;
-    int verbalnotefzk;
 
 
-    Student(String name, int classes, String stuNo, Course mat,Course fizik,Course kimya, int verbalnotemat, int verbalnotefzk, int verbalnotekmy) {
+
+    Student(String name, int classes, String stuNo, Course mat,Course fizik,Course kimya) {
         this.name = name;
         this.classes = classes;
         this.stuNo = stuNo;
         this.mat = mat;
         this.fizik = fizik;
         this.kimya = kimya;
-        this.verbalnotekmy = verbalnotekmy;
-        this.verbalnotefzk = verbalnotefzk;
-        this.verbalnotemat = verbalnotemat;
-        calcAvarage();
         this.isPass = false;
+        this.age = 15;
     }
 
 
-    public void addBulkExamNote(int mat,int verbalnotemat ,int fizik, int verbalnotefzk, int kimya, int verbalnotekmy) {
+    public void addBulkExamNote(int mat,int verbalNoteMat ,int fizik, int verbalNoteFzk, int kimya, int verbalNoteKmy) {
 
         if (mat >= 0 && mat <= 100) {
             this.mat.note = mat;
+            this.mat.verbalNote = verbalNoteMat;
         }
 
         if (fizik >= 0 && fizik <= 100) {
             this.fizik.note = fizik;
+            this.fizik.verbalNote = verbalNoteFzk;
         }
 
         if (kimya >= 0 && kimya <= 100) {
             this.kimya.note = kimya;
+            this.kimya.verbalNote = verbalNoteKmy;
         }
 
     }
@@ -58,7 +56,7 @@ public class Student {
     }
 
     public void calcAvarage() {
-        this.avarage = (((this.fizik.note * 0.80) +(fizik.verbalnotefzk * 0.20)) +  ((this.kimya.note * 0.80) +(kimya.verbalnotekmy * 0.20)) + ((this.mat.note * 0.80) +(mat.verbalnotemat * 0.20))) / 3;
+        this.avarage = (((this.fizik.note * 0.80) +(fizik.verbalNote * 0.20)) +  ((this.kimya.note * 0.80) +(kimya.verbalNote * 0.20)) + ((this.mat.note * 0.80) +(mat.verbalNote * 0.20))) / 3;
     }
 
     public boolean isCheckPass() {
@@ -69,12 +67,13 @@ public class Student {
     public void printNote(){
         System.out.println("=========================");
         System.out.println("Öğrenci : " + this.name);
+        System.out.println("Öğrenci Yaş : " + this.age);
         System.out.println("Matematik Notu : " + this.mat.note);
-        System.out.println("Matematik Sözlü Notu : " + mat.verbalnotemat);
+        System.out.println("Matematik Sözlü Notu : " + mat.verbalNote);
         System.out.println("Fizik Notu : " + this.fizik.note);
-        System.out.println("Fizik Sözlü Notu : " + fizik.verbalnotefzk);
+        System.out.println("Fizik Sözlü Notu : " + fizik.verbalNote);
         System.out.println("Kimya Notu : " + this.kimya.note);
-        System.out.println("Kimya sözlü Notu : " + kimya.verbalnotekmy);
+        System.out.println("Kimya sözlü Notu : " + kimya.verbalNote);
     }
 
 }
